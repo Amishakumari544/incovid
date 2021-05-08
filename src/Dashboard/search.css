@@ -1,0 +1,24 @@
+.search{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    width: 600px;
+    border-radius: 9px;
+    padding: 15px;
+    margin-top: 10px;
+}
+.search > input{
+    border: 0;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size:1.2rem;
+    width: 100%;
+}
+.search-icon{
+    width: 30%;
+    color: #1ED760;
+    margin-top: 2px;
+    margin-right: 10px;
+}

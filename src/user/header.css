@@ -1,0 +1,16 @@
+.navbar{
+    background:#fff !important;
+}
+.navbar-brand{
+    margin-left: 100px;
+    font-size: 2rem;
+    color: #00b87c !important;
+}
+.nav-link{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #00b87c !important;
+}
+.nav-link:active{
+    color: #ffa43c !important
+}

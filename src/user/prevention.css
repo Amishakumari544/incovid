@@ -1,0 +1,16 @@
+.prevention_title{
+    color: #00b87c;
+}
+.prevention_img{
+    width: 628px;
+    margin-top: 128px;
+    height: auto;
+}
+@media only screen and (max-width: 768px) {
+    .prevention_img{
+        width:250px;
+    }
+    h1{
+        font-size: 1.4rem;
+    }
+}

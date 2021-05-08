@@ -1,0 +1,43 @@
+.lead_stories{
+    background: #fff;
+    clear: both;
+    margin: 10px 10px 25px;
+    overflow: hidden;
+    padding: 10px;
+    -moz-box-shadow: 0 0 5px 5px #dfdfdf;
+    -webkit-box-shadow: 0 0 5px 5px #dfdfdf;
+    box-shadow: 0 0 5px 5px #f1f1f1;
+}
+.title_covid{
+    color: rgb(51, 156, 121);
+    font-size: 1.8rem !important;
+    text-transform: uppercase;
+}
+.news_img{
+    width:600px;
+}
+.new_img{
+    float: left;
+    height: 83px;
+    line-height: 0;
+    overflow: hidden;
+    padding: 5px 10px 0 0;
+    position: relative;
+    width: 150px;
+}
+.articles{
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 0 10px;
+}
+h4{
+   
+    /* line-height: 26px; */
+    
+    margin-left: 50px;
+    font-size: 0.9rem !important;
+}
+a{
+    text-decoration: none !important;
+    color: #000 !important;
+}
