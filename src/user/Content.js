@@ -4,6 +4,8 @@ import Header from './Header'
 import content_img from "./../assets/content_img.png";
 import "./content.css";
 import NewsData from './NewsData';
+import LineChart from '../common/LineChart';
+import BarChart from '../common/BarChart';
 function Content() {
     return (
         <div className="container user_content">
@@ -15,7 +17,8 @@ function Content() {
                 <img src={content_img} className="content_img" alt="content" />
             </div>
          </div>
-        
+        <LineChart />
+       
         </div>
     )
 }

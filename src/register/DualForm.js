@@ -1,9 +1,11 @@
 import React from "react";
 import { set, useForm } from "react-hook-form";
 import axios from "axios";
+import {Link,useHistory} from "react-router-dom";
 // import { useAlert } from "react-alert";
 import "./form.css";
 function DualForm(props) {
+  let history = useHistory();
   var lat = "";
   var lon = "";
   if (props.coords) {
@@ -11,7 +13,7 @@ function DualForm(props) {
     lon = props.coords.longitude;
   } // watch input value by passing the name of it
   // location object
-
+ 
   //   const alert = useAlert();
 
   // console.log(props.coords.latitude);
@@ -30,29 +32,30 @@ function DualForm(props) {
   } = useForm({
     mode: "onBlur",
   });
-  const testSubmit = (data) => {
+  const registrationSubmit = (data) => {
     data.lat = lat;
     data.lon = lon;
-    console.log(data);
-    // axios
-    //   .post("http://covidline.musocial.in:8050/hospital", data)
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.data.success === 1) {
-    //       alert.show(res.data.message);
-    //     } else {
-    //       alert.show(res.data.message);
-    //     }
+    axios
+      .post("https://incovid.herokuapp.com/hospital", data)
+      .then((res) => {
+        console.log(res);
+        if (res.data.success === 1) {
+          alert.show(res.data.message);
+        } else {
+          alert.show(res.data.message);
+        }
     // if(res.data.success===0)
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
+        
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
+ 
 
   const loginSubmit = (data) => {
     axios
-      .post("http://covidline.musocial.in:8050/hospital/login", data)
+      .post("https://incovid.herokuapp.com/hospital/login", data)
       .then((res) => {
         console.log(res);
         if (res.data.success === 1) {
@@ -67,6 +70,12 @@ function DualForm(props) {
         // props.history.push("/dashboard");
       });
   };
+  const handlenav = () =>{
+   history.push("/dashboard");
+  }
+
+
+
   // console.log(props.props.longitude);
   //  !props.isGeolocationAvailable ? (
   //   <div>Your browser does not support Geolocation</div>
@@ -120,7 +129,7 @@ function DualForm(props) {
               <h3 className="register-heading">Register</h3>
               <form
                 key={2}
-                onSubmit={handleSubmit2(testSubmit)}
+                onSubmit={handleSubmit(registrationSubmit)}
                 autoComplete="off"
               >
                 <div className="row register-form">
@@ -138,22 +147,18 @@ function DualForm(props) {
                       This field is required
                     </small>
                   )}
-                  <small id="emailHelp" class="form-text text-muted">
-               
-                  
+                  <small id="emailHelp" class="form-text text-muted">   
                   </small>
-                  
                     </div>
-
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Hospital Name*"
                         value=""
-                        {...register2("", { required: true })}
+                        {...register2("hos_name", { required: true })}
                       />
-                        {errors.username && (
+                        {errors.hos_name && (
                     <small className="text-danger">
                       This field is required
                     </small>
@@ -164,35 +169,17 @@ function DualForm(props) {
                   </small>
                   
                     </div>
+                   
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Person*"
+                        placeholder="Available ICU Bed *"
+                        name="a_icu"
                         value=""
-                        {...register2("", { required: true })}
+                        {...register2("a_icu", { required: true })}
                       />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-               
-                  
-                  </small>
-                  
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Available Bed *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
+                        {errors.a_icu && (
                     <small className="text-danger">
                       This field is required
                     </small>
@@ -200,67 +187,48 @@ function DualForm(props) {
                   <small id="emailHelp" class="form-text text-muted">
                  </small>
                   </div>
+                  
+                  <div className="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="a_covid"
+                        className="form-control"
+                        placeholder="Available Covid Bed *"
+                        value=""
+                        {...register2("a_covid", { required: true })}
+                      />
+                        {errors.username && (
+                    <small className="text-danger">
+                      This field is required
+                    </small>
+                  )}
+                  <small id="emailHelp" class="form-text text-muted">
+                   
+                  
+                  </small>
+                  
+                    </div>
                     <div className="form-group">
                           <input
                             type="number"
-                            name="contact"
+                            name="mobile"
                             className="form-control"
                             placeholder="Contact Number"
-                            {...register2("", { required: true })}
+                            {...register2("mobile", { required: true })}
                           />
                    </div>
                    <div className="form-group">
-                      <input
-                        type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
-                        className="form-control"
-                        placeholder="Your Phone *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
-                        className="form-control"
-                        placeholder="Your Phone *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                    </div>
-                   <div className="form-group">
                           <input
                             type="number"
+                            name="pincode"
                             className="form-control"
                             value=""
-                            {...register2("", { required: true })}
+                            placeholder="Pincode *"
+                            {...register2("pincode", { required: true })}
                           />
-                            {errors.username && (
+                            {errors.pincode && (
                     <small className="text-danger">
                       This field is required
                     </small>
@@ -292,15 +260,30 @@ function DualForm(props) {
                     <div className="form-group">
                       <input
                         type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
+                        name="addr"
                         className="form-control"
-                        placeholder="Your Phone *"
+                        placeholder="Hospital Address *"
                         value=""
-                        {...register2("", { required: true })}
+                        {...register2("addr", { required: true })}
                       />
-                        {errors.username && (
+                        {errors.addr && (
+                    <small className="text-danger">
+                      This field is required
+                    </small>
+                  )}
+                  <small id="emailHelp" class="form-text text-muted">
+                  </small>
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="number"
+                        name="a_oxy"
+                        className="form-control"
+                        placeholder="Available Oxygen *"
+                        value=""
+                        {...register2("a_oxy", { required: true })}
+                      />
+                        {errors.a_oxy && (
                     <small className="text-danger">
                       This field is required
                     </small>
@@ -314,81 +297,13 @@ function DualForm(props) {
                     <div className="form-group">
                       <input
                         type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
+                        name="t_oxy"
                         className="form-control"
-                        placeholder=" *"
+                        placeholder="Total Oxygen *"
                         value=""
-                        {...register2("", { required: true })}
+                        {...register2("t_oxy", { required: true })}
                       />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
-                        className="form-control"
-                        placeholder="Your Phone *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
-                        className="form-control"
-                        placeholder="Your Phone *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        minlength="10"
-                        maxlength="10"
-                        name="txtEmpPhone"
-                        className="form-control"
-                        placeholder="Your Phone *"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
+                        {errors.t_oxy && (
                     <small className="text-danger">
                       This field is required
                     </small>
@@ -408,56 +323,13 @@ function DualForm(props) {
                         <option>No</option>
                       </select>
                     </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder=" Available ICU Bed*"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
                    
-                  
-                  </small>
-                  
-                    </div>
-                   
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder=" Available Covid Bed*"
-                        value=""
-                        {...register2("", { required: true })}
-                      />
-                        {errors.username && (
-                    <small className="text-danger">
-                      This field is required
-                    </small>
-                  )}
-                  <small id="emailHelp" class="form-text text-muted">
-                   
-                  
-                  </small>
-                  
-                       <input
-                  name="lon"
-                  type="hidden"
-                  defaultValue={lon}
-                  {...register("lon")}
-                />
-                    </div>
-                    <input
-                      type="submit"
+                    <button
+                      onClick={handlenav}
                       className="btnRegister"
                       value="Register"
-                    />
+                    >Register</button>
+            
                   </div>
                 </div>
               </form>
@@ -478,7 +350,7 @@ function DualForm(props) {
               <h3 className="register-heading">Login</h3>
               <form
                 key={2}
-                onSubmit={handleSubmit2(testSubmit)}
+                onSubmit={handleSubmit2(loginSubmit)}
                 autoComplete="off"
               >
                 <div className="row register-form">
@@ -520,10 +392,24 @@ function DualForm(props) {
                   </small>
                     </div>
                     <input
-                      type="submit"
+                  name="lat"
+                  type="hidden"
+                  defaultValue={lat}
+                  {...register("lat")}
+                
+                />
+            
+                <input
+                  name="lon"
+                  type="hidden"
+                  defaultValue={lon}
+                  {...register("lon")}
+                />
+                    <button
+                     
                       className="btnRegister"
                       value="Login"
-                    />
+                    >Login</button>
                   </div>
                 </div>
               </form>

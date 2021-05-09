@@ -14,3 +14,41 @@
 .nav-link:active{
     color: #ffa43c !important
 }
+.navbar{
+    height:80px;
+    background:#effff3 !important;
+}
+.navbar-brand{
+    font-weight: 700;
+    color: #38cc4b  !important;
+    font-size: 3rem;
+}
+/* .search_input{
+    border-radius: 50px;
+    outline: 0;
+    width: 300px !important;
+} */
+.navbar-collapse{
+    background: #effff3;
+    padding: 1px;
+    padding-top: 10px;
+    z-index: 2;
+}
+.header-btn{
+    background:#00b87c;
+    margin-bottom: 6px;
+    padding:7px;
+}
+.header-link{
+    font-size: 1.3rem !important;
+    list-style: none !important;
+    text-decoration: none !important;
+    color: #38cc4b !important;
+    margin-right: 10px;
+    font-weight: 500 !important;
+}
+@media only screen and (max-width: 768px) {
+    .navbar-brand{
+        font-size: 25px;
+    }
+}

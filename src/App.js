@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState} from 'react'
 import {BrowserRouter as Router} from "react-router-dom"
 import { Route, Switch } from 'react-router';
 
@@ -13,14 +13,19 @@ import Header from './user/Header'
 import Prevention from "./user/Prevention"
 import TableData from './common/TableData'
 import FooterUI from './common/FooterUI';
+import Loader from './Loader';
 function App() {
+  
   return (
     <div>
+     
        <main>
          <Header />
-         <DualForm />
+       
             <Switch>
             <Route exact path="/" component={Content} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route path="/dualform" component={DualForm} />
             <Route path="/tableData" component={TableData} />
             <Route path="/news" component={NewsData} />
             <Route path="/prevention" component={Prevention} />

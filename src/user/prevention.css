@@ -6,6 +6,10 @@
     margin-top: 128px;
     height: auto;
 }
+.covid_meal_img{
+    width: 300px;
+    height:auto;
+}
 @media only screen and (max-width: 768px) {
     .prevention_img{
         width:250px;

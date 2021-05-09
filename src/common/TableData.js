@@ -7,29 +7,56 @@ function TableData() {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Hospital Name</th>
+      <th scope="col">Available ICU Bed</th>
+      <th scope="col">Available Covid Bed</th>
+      <th scope="col">Total Bed</th>
+      <th scope="col">Available Oxygen</th>
+      <th scope="col">Hospital is Covid or not</th>
+      <th scope="col">Hospital Contact Number</th>
+  
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Kantilal</td>
+      <td>7</td>
+      <td>8</td>
+      <td>7</td>
+      <td>8</td>
+      <td>7</td>
+      <td>26386298398</td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <td>TMH</td>
+      <td>2</td>
+      <td>7</td>
+      <td>2</td>
+      <td>7</td>
+      <td>2</td>
+      <td>687987999</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+      <td>8</td>
+      <td>4</td>
+      <td>8</td>
+      <td>4</td>
+      <td>8</td>
+      <td>758779808</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>8</td>
+      <td>4</td>
+      <td>8</td>
+      <td>4</td>
+      <td>8</td>
+      <td>769879808</td>
     </tr>
   </tbody>
 </table>

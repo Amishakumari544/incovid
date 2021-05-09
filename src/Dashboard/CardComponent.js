@@ -7,22 +7,22 @@ const characters = [
   {
     id: 1,
     name: "Available Normal Beds",
-    alterEgo: "Diana Prince",
+    alterEgo: "7",
   },
   {
     id: 2,
     name: "Available ICU Beds",
-    alterEgo: "Pamela Lillian Isley",
+    alterEgo: "87",
   },
   {
     id: 3,
     name: "Available Covid Beds",
-    alterEgo: "Dinah Drake",
+    alterEgo: "8",
   },
   {
     id: 4,
     name: "Hospital is Covid or not",
-    alterEgo: "Selina Kyle",
+    alterEgo: "yes",
   },
 ];
 function CardComponent() {
@@ -52,7 +52,7 @@ function CardComponent() {
                   <strong>{character.name}</strong>
                 </p>
                 <p>{character.alterEgo}</p>
-              <EditModal/>
+              {/* <EditModal/> */}
               </div>
              
             </li>

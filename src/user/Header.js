@@ -1,7 +1,12 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import "./header.css";
 function Header() {
+  const [login, setlogin] = useState(false)
+  useEffect(()=>{
+    const islogin=(JSON.parse(localStorage.getItem('login')));
+    setlogin(islogin)
+  },[])
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,13 +18,25 @@ function Header() {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto">
       <li class="nav-item active">
-        <Link class="nav-link" to={"/"}>Home <span class="sr-only">(current)</span></Link>
+        <Link class="header-link" to={"/"}>Home <span class="sr-only">(current)</span></Link>
       </li>
       <li class="nav-item">
-        <Link class="nav-link" to={"/prevention"}>Prevention</Link>
+        <Link class="header-link" to={"/prevention"}>Prevention</Link>
       </li>
       <li class="nav-item">
-        <Link class="nav-link" to ={"/news"}>News</Link>
+        <Link class="header-link" to ={"/news"}>News</Link>
+      </li>
+      <li class="nav-item">
+        
+      <Link type="button" class="header-link mr-2" to ={"/dualform"}>Register for Hospital</Link>
+      </li>
+      <li class="nav-item mt-2">
+        
+      <Link class="header-btn" to={"/"} onClick={()=>{
+        setlogin(false)
+        localStorage.setItem('login',JSON.stringify(false))
+        }}>Logout<span class="sr-only">(current)</span></Link>
+    
       </li>
     </ul>
   </div>
