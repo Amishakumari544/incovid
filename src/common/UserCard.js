@@ -5,22 +5,22 @@ const characters = [
   {
     id: 1,
     name: "Available Normal Beds",
-    alterEgo: "Diana Prince",
+    alterEgo: "7",
   },
   {
     id: 2,
     name: "Available ICU Beds",
-    alterEgo: "Pamela Lillian Isley",
+    alterEgo: "4",
   },
   {
     id: 3,
     name: "Available Covid Beds",
-    alterEgo: "Dinah Drake",
+    alterEgo: "4",
   },
   {
     id: 4,
     name: "Hospital is Covid or not",
-    alterEgo: "Selina Kyle",
+    alterEgo: "yes",
   },
 ];
 function UserCard(props) {

@@ -12,16 +12,16 @@ import Content from './user/Content'
 import Header from './user/Header'
 import Prevention from "./user/Prevention"
 import TableData from './common/TableData'
+import BarChart from "./common/BarChart";
 import FooterUI from './common/FooterUI';
 import Loader from './Loader';
 function App() {
   
   return (
     <div>
-     
-       <main>
+      <main>
          <Header />
-       
+       <BarChart />
             <Switch>
             <Route exact path="/" component={Content} />
             <Route exact path="/dashboard" component={Dashboard} />

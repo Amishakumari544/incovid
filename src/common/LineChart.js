@@ -36,7 +36,9 @@ const LineChart = () => {
   }
 
   return (
+
     <div className="linechat">    
+    <h1>Covid Data</h1>
       <Grid className="">
         <Button
           style={{ backgroundColor: "#4A148C" }}

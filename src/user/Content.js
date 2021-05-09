@@ -18,7 +18,7 @@ function Content() {
             </div>
          </div>
         <LineChart />
-       
+      
         </div>
     )
 }
