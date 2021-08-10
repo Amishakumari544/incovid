@@ -1,5 +1,8 @@
 ![Screenshot (193)](https://user-images.githubusercontent.com/49230384/128906467-425bcf17-0526-4c13-a2d3-acffd0c529c3.png)
 
+# Precautions
+![Screenshot (196)](https://user-images.githubusercontent.com/49230384/128906660-08ae9330-ee94-4d96-b0ff-99e6ce6a89f2.png)
+
 
 
 # Getting Started with Create React App
